@@ -24,12 +24,11 @@ public:
 		IntArray(IntArray&& ary);
 		~IntArray();
 
-		int get(int x, int y) const;
+		int get(int i, int j) const;
 
 		friend std::ostream& operator<<(std::ostream& os, const IntArray& ary);
 		friend std::istream& operator<<(std::istream& is, IntArray& ary);
 private:
-		//std::vector<std::vector<int> > m_data;	//
 		int**		m_ppdata;		//
 		int			m_row;
 		int			m_col;

@@ -41,6 +41,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AutoPtr3", "AutoPtr3\AutoPt
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Line", "Line\Line.vcxproj", "{C6655C2B-99B8-4D50-9498-4117499EAC6B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Clock", "Clock\Clock.vcxproj", "{FD9DC21A-B504-443F-AD8E-0AFDF0787829}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -196,6 +198,14 @@ Global
 		{C6655C2B-99B8-4D50-9498-4117499EAC6B}.Release|Win32.Build.0 = Release|Win32
 		{C6655C2B-99B8-4D50-9498-4117499EAC6B}.Release|x64.ActiveCfg = Release|x64
 		{C6655C2B-99B8-4D50-9498-4117499EAC6B}.Release|x64.Build.0 = Release|x64
+		{FD9DC21A-B504-443F-AD8E-0AFDF0787829}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FD9DC21A-B504-443F-AD8E-0AFDF0787829}.Debug|Win32.Build.0 = Debug|Win32
+		{FD9DC21A-B504-443F-AD8E-0AFDF0787829}.Debug|x64.ActiveCfg = Debug|x64
+		{FD9DC21A-B504-443F-AD8E-0AFDF0787829}.Debug|x64.Build.0 = Debug|x64
+		{FD9DC21A-B504-443F-AD8E-0AFDF0787829}.Release|Win32.ActiveCfg = Release|Win32
+		{FD9DC21A-B504-443F-AD8E-0AFDF0787829}.Release|Win32.Build.0 = Release|Win32
+		{FD9DC21A-B504-443F-AD8E-0AFDF0787829}.Release|x64.ActiveCfg = Release|x64
+		{FD9DC21A-B504-443F-AD8E-0AFDF0787829}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

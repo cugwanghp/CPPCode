@@ -20,6 +20,7 @@ public:
 	void simplify();	//分数简化
 
 	operator double()const;	//分数与double的强制转换
+	bool operator>(const fraction& f);
 
 	friend ostream& operator<<(ostream& os, const fraction& f);	//输出操作符重载
 	friend istream& operator>>(istream& is, fraction& f);	//输入操作符重载
@@ -54,7 +55,6 @@ public:
 	friend fraction operator/(T n, const fraction& f);
 };
 
-
 // 函数声明	
 ostream& operator<<(ostream& os, const fraction& f);	//输出操作符重载
 istream& operator>>(istream& is, fraction& f);	//输入操作符重载
@@ -63,7 +63,6 @@ fraction operator+(const fraction& f1, const fraction& f2);	//分数与分数加法运算
 fraction operator-(const fraction& f1, const fraction& f2);	//分数与分数减法运算符重载
 fraction operator*(const fraction& f1, const fraction& f2);	//分数与分数乘法运算符重载
 fraction operator/(const fraction& f1, const fraction& f2);	//分数与分数除法运算符重载
-
 
 template<typename T>
 T gcd(T a, T b)

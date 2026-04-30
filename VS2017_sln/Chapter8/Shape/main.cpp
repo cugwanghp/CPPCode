@@ -3,7 +3,7 @@
 #include <vector>
 
 /*
-文件存了若干个 几何形状坐标（）
+文件存了若干个几何形状坐标（）
 统计形状的面积的总和
 */
 
@@ -36,7 +36,11 @@ int main()
 						std::cin >> a;
 						vecShapePtrs.push_back(new Square(a));
 						break;
+				case 0:
+						std::cout << "Exit\n";
+						break;
 				default:
+						std::cout << "Invalidate Type.\n";
 						break;
 				}
 		} while(shapeType != 0);

@@ -13,6 +13,8 @@ public:
 		int& operator[](int index) { return m_pdata[index]; }
 		const int& operator[](int index) const { return m_pdata[index]; }
 		array operator*(int scale) const;
+		int& operator()(int index);
+		const int& operator()(int index) const;
 private:
 		int*    m_pdata;
 		int     m_size;

@@ -1,13 +1,27 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player(const std::string& name, int age, double score) :
-		Person(name, age), m_score(score)
+// 体育运动名称
+const char* SportsName[] = { "basketball",
+														 "football",
+														 "volleyball",
+														 "table tennis",
+														 "badminton",
+														 "tennis",
+														 "baseball",
+														 "softball",
+														 "handball" };
+
+Player::Player(const std::string& name, int age, 
+		SportsEvents event, double score) :
+		Person(name, age), m_sportsEvents(event), m_score(score)
 {
 }
 
 void
 Player::print() const
 {
-		std::cout << m_name << ", " << m_age << ", " << m_score;
+		Person::print();
+		std::cout << ", " << SportsName[(int)m_sportsEvents];
+		std::cout << ", " << m_score;
 }

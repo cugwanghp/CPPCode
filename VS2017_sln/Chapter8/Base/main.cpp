@@ -1,44 +1,22 @@
-﻿#include <iostream>
-#include "Base.h"
-using namespace std;
+﻿#include "Base.h"
+#include <iostream>
 
 int main()
 {
-	Base	b, b1;
-	Derived d;
-	Base&	rb = d;
-	Base*	pb = &d;
-	Base&	rb2 = b;
-	Base*	pb2 = &b;
-	d.print();
-	rb.print();
-	int	choice;
-	cin >> choice;	//1-Base, 2-Derived
-	Base*	pb3 = nullptr;
-	if (choice == 1)
-	{
-		pb3 = new Base;
-	}
-	else if (choice == 2)
-	{
-		pb3 = new Derived;
-	}
-	
-	cout << *pb3;
-	if (pb3) delete pb3;
+		Circle	c(1.0);
+		std::cout << c.area() << std::endl;
 
-//	b.print();
-//	d.print();]]
-	cout << b;	//operator<<(cout, b)
-	cout << d;	//operator<<(cout, d), d is b, d-->b
-	cout << rb;
-	cout << rb2;
-	/*
-	Base	b1;
+		Rectangle		r(3.0, 4.0);
+		std::cout << r.area() << std::endl;
 
-	std::cout << "Base size = " << sizeof(Base) << std::endl;
-	std::cout << "Derived size = " << sizeof(Derived) << std::endl;
-	std::cout << "rBase is a " << rBase.getName() << '\n';
-	*/
-	return 0;
+		Shape*	ps = &c;//基类的指针指向派生类对象的地址？？
+		Shape&  rs = c;	//基类的引用指向派生类的对象
+		Shape		s2 = c;	//基类的对象=派生类对象？？
+
+		std::cout << ps->area() << std::endl;
+
+		ps = &r;		//ps--> rectangle
+		std::cout << ps->area() << std::endl;
+
+		return 0;
 }

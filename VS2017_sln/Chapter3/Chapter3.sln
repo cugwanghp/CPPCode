@@ -39,6 +39,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3_17", "3_17\3_17.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircleArea", "CircleArea\CircleArea.vcxproj", "{A7A4B77A-9DD8-43BF-820C-89A2D79D27B9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Clock", "Clock\Clock.vcxproj", "{558667CB-C9A5-4DB3-A967-B9BB0DDA21CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -191,6 +193,14 @@ Global
 		{A7A4B77A-9DD8-43BF-820C-89A2D79D27B9}.Release|x64.Build.0 = Release|x64
 		{A7A4B77A-9DD8-43BF-820C-89A2D79D27B9}.Release|x86.ActiveCfg = Release|Win32
 		{A7A4B77A-9DD8-43BF-820C-89A2D79D27B9}.Release|x86.Build.0 = Release|Win32
+		{558667CB-C9A5-4DB3-A967-B9BB0DDA21CB}.Debug|x64.ActiveCfg = Debug|x64
+		{558667CB-C9A5-4DB3-A967-B9BB0DDA21CB}.Debug|x64.Build.0 = Debug|x64
+		{558667CB-C9A5-4DB3-A967-B9BB0DDA21CB}.Debug|x86.ActiveCfg = Debug|Win32
+		{558667CB-C9A5-4DB3-A967-B9BB0DDA21CB}.Debug|x86.Build.0 = Debug|Win32
+		{558667CB-C9A5-4DB3-A967-B9BB0DDA21CB}.Release|x64.ActiveCfg = Release|x64
+		{558667CB-C9A5-4DB3-A967-B9BB0DDA21CB}.Release|x64.Build.0 = Release|x64
+		{558667CB-C9A5-4DB3-A967-B9BB0DDA21CB}.Release|x86.ActiveCfg = Release|Win32
+		{558667CB-C9A5-4DB3-A967-B9BB0DDA21CB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

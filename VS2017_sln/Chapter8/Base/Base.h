@@ -1,23 +1,25 @@
 #pragma once
-#include <string>
-#include <iostream>
-using namespace std;
 
-class Base
-{
-	int	m_base;
+// Shape --> Triangle, Rectangle, Circle, Ellipse, 求面积
+//1. 继承关系， base: Shape, Derived: Triangle, Rectangl, Ellipse...
+class Shape {
 public:
-	virtual void print() const { cout << "Base" << endl; }
-	friend ostream& operator << (ostream& out, const Base& b);
-	//string getName() const { return string("Base"); }
+		virtual float area() const { return 0.0; }	//形状的面积
+		virtual ~Shape() {}
 };
 
-class Derived : public Base
-{
-	int	m_derived;
+class Circle : public Shape{
 public:
-	void print() const { cout << "Derived" << endl; }
-	//string getName() const { return string("Derived"); }
-	//virtual int get() const { return 0; }
+		Circle(float r = 0.0) : Shape(), radius(r) {}
+		virtual float area() const override;
+private:
+		float radius;
 };
-ostream& operator<<(ostream& out, const Base& b);
+
+class Rectangle : public Shape {
+public:
+		Rectangle(float w, float h) : Shape(), width(w), height(h){}
+		float area() const;
+private:
+		float width, height;
+};

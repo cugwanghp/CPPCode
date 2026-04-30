@@ -39,9 +39,13 @@ void fraction::simplify()
 
 fraction::operator double()const
 {
-	return (double)numerator / denominator;
+	return (double)numerator /(double)denominator;
 }
 
+bool fraction::operator>(const fraction& f)
+{
+		return double(*this) > double(f);
+}
 ostream& operator<<(ostream& os, const fraction& f)
 {
 	os << f.numerator << "/" << f.denominator;

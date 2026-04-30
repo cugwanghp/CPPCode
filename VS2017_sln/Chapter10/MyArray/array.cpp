@@ -66,6 +66,16 @@ array array::operator*(int scale) const {
 		return arr;
 }
 
+int& array::operator()(int index)
+{
+		return m_pdata[index];
+}
+
+const int& array::operator()(int index) const
+{
+		return m_pdata[index];
+}
+
 array operator*(int scale, const array& arr) {
 		return arr * scale;
 }

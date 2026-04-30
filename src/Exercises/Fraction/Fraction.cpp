@@ -75,3 +75,24 @@ int main()
 
     return 0;
 }
+
+
+using namespace std;
+class Complex{
+public:
+    Complex(double r=0.0, double i=0.0) : real(r),imag (i){}
+    Complex operator+(const Complex &c2)const;
+    void display() const;
+private:
+    double real, imag;
+};
+Complex Complex::operator+(const Complex &c2)const{
+    return Complex(real+c2.real, imag+c2.imag);
+}
+void Complex::display() const {cout<< "("<< real<< "," << imag << ")"<<endl;}
+int main(){
+    Complex c1(5, 4), c2(2, 10), c3;
+    c3 = c1 + c2;
+    c3.display();
+    return 0;
+}

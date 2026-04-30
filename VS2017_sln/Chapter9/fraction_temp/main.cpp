@@ -1,10 +1,5 @@
 /******************************************************************************
 
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
 *******************************************************************************/
 //实现分数类fraction的功能，完成简单的运算。
 //数据成员包括：分子和分母（整数）
@@ -13,15 +8,55 @@ Code, Compile, Run and Debug online from anywhere in world.
 //主函数如下
 #include <iostream>
 #include "fraction.h"
+#include <string>
 using namespace std;
+
+// 求两个数最大值
+template<typename T>
+T max(T x, T y) {
+		return (x > y) ? x : y;
+}
+
+class Student {
+public:
+		Student(int id, const char* name) : m_id(id), m_name(name){}
+		bool operator>(const Student& other) { return m_id > other.m_id; }
+private:
+		int	m_id;
+		std::string	m_name;
+};
+
+template<typename T>
+void sort(T a[], int n)
+{
+		for (int i = 0; i < n - 1; i++)
+		{
+				for (int j = i + 1; j < n; j++)
+				{
+						//a[i]>a[j]
+						if (a[i] > a[j])
+						{
+								auto t = a[i];
+								a[i] = a[j];
+								a[j] = t;
+						}
+				}
+		}
+}
 
 int main()
 {
+		max(1, 2);	//int max(int,int)
+		max(1.0, 2.0);	//double max(double, double)
+		Student	stus[] = { Student(5,"5"), Student(1,"1"), Student(9,"9") };
+		sort(stus, 3);	//
+
 	fraction f1(1, 2); // 表示1/2
 	fraction f2(1.2 / 0.5); // 表示1.2/0.5
 	fraction f3(0.6); //转换为分数3/5
 	fraction f4;
 	fraction f5 = f3; //拷贝构造
+	std::cout << max(f1, f2) << std::endl;
 	cin >> f4; //输入分子，分母，并简化
 	cout << f1 + f2 << endl;
 	cout << f1 - f2 << endl;
@@ -31,6 +66,6 @@ int main()
 	cout << 0.5 + f3 << endl; // -*/都支持
 	cout << f4 + 1 << endl;
 	cout << 1 + f4 << endl;
-	cout << double(f5) + 0.5 << endl;
+	//cout << double(f5) + 0.5 << endl;
 	return 0;
 }

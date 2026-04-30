@@ -145,3 +145,29 @@ void Vector::pop_back()
 		if (!empty())
 				m_pData[--m_size];
 }
+// ¹¹Ôìº¯Êý
+Array::Array(int n) {
+		len = n;
+		pData = new int[len];
+}
+
+Array::Array(const Array& other) {
+		this->len = other.len;	//
+		this->pData = new int[len];
+		for (int i = 0; i < len; i++)
+				pData[i] = other.pData[i];
+}
+
+Array::Array(Array&& other) {
+		this->len = other.len;
+		this->pData = other.pData;
+		other.pData = nullptr;
+		other.len = 0;
+}
+
+
+Array::~Array() {
+		if (pData) delete[] pData;
+		pData = nullptr;
+		len = 0;
+}

@@ -1,5 +1,7 @@
 ﻿//5_2.cpp
 #include <iostream>
+#include "fun.h"
+
 using namespace std;
 int i = 1;	// i 为全局变量，具有静态生存期
 
@@ -17,7 +19,10 @@ void other() {
     b = a;
 }
 
+
 int main() {
+		fun obj;		//fun class 
+
     //a为静态局部变量，具有全局寿命，局部可见
     static int a;
     //b, c为局部变量，具有动态生存期

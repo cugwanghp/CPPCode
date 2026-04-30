@@ -1,61 +1,29 @@
-﻿//4_4.cpp
+﻿/*
+ * @Author: cugwanghp wanghp@cug.edu.cn
+ * @Date: 2025-04-02 10:43:53
+ * @LastEditors: cugwanghp wanghp@cug.edu.cn
+ * @LastEditTime: 2026-03-30 15:18:45
+ * @FilePath: \CPPCode\VS2017_sln\Chapter4\4_4\4_4.cpp
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+//4_4.cpp
+#include "Line.h"
 #include <iostream>
-#include <cmath>
-using namespace std;
-
-class Point {	//Point类定义
-public:
-    Point(int xx = 0, int yy = 0) {
-        x = xx;
-        y = yy;
-		cout << "Calling the constructor of Point" << endl;
-    }
-    Point(const Point &p);
-    int getX() { return x; }
-    int getY() { return y; }
-private:
-    int x, y;
-};
-
-Point::Point(const Point &p) {	//复制构造函数的实现
-    x = p.x;
-    y = p.y;
-    cout << "Calling the copy constructor of Point" << endl;
-}
-
-//类的组合
-class Line {	//Line类的定义
-public:	//外部接口
-    Line(const Point& xp1, const Point& xp2);
-    Line(Line &l);
-    double getLen() { return len; }
-private:	//私有数据成员
-    Point p1, p2;	//Point类的对象p1,p2
-    double len;
-};
-
-//组合类的构造函数
-Line::Line(const Point& xp1, const Point& xp2) : p1(xp1), p2(xp2) {
-    cout << "Calling constructor of Line" << endl;
-    double x = static_cast<double>(p1.getX() - p2.getX());
-    double y = static_cast<double>(p1.getY() - p2.getY());
-    len = sqrt(x * x + y * y);
-}
-
-//组合类的复制构造函数
-Line::Line (Line &l): p1(l.p1), p2(l.p2) {
-    cout << "Calling the copy constructor of Line" << endl;
-    len = l.len;
-}
 
 //主函数
 int main() {
+		Line		l2 = getLine();
+
     Point myp1(1, 1), myp2(4, 5);	//建立Point类的对象
+    
     Line line(myp1, myp2);	//建立Line类的对象
     Line line2(line);	//利用复制构造函数建立一个新对象
-    cout << "The length of the line is: ";
-    cout << line.getLen() << endl;
-    cout << "The length of the line2 is: ";
-    cout << line2.getLen() << endl;
+    
+    std::cout << "The length of the line is: ";
+    std::cout << line.getLen() << std::endl;
+    
+    std::cout << "The length of the line2 is: ";
+    std::cout << line2.getLen() << std::endl;
+    
     return 0;
 }

@@ -1,14 +1,17 @@
 #include "Array.h"
 #include "Matrix.h"
 #include <iostream>
+#include <memory>
 
 int main()
 {
-		// Test Array
-		Array		d(6);
+	Array	a(6);	//6个元素的数组
+	Array	b(a);	//拷贝构造函数
+
+	return 0;
 
 		// Test Matrix
-		int			m, n;
+		int			m;
 		std::cout << "Input Matrix's row, col and data: ";
 		std::cin >> m >> n;
 		Matrix	m1(m, n);

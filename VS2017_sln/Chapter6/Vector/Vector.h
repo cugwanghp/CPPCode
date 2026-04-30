@@ -75,4 +75,13 @@ private:
 		size_t	m_len;			//数组的容积		
 };
 */
-
+class Array {
+public:
+		Array(int n);
+		Array(const Array& other);
+		Array(Array&& other);
+		~Array();
+private:
+		int*		pData;
+		int			len;
+};

@@ -15,7 +15,6 @@ int main() {
     unsigned n;
     cout << "n = ";
     cin >> n;
-
     vector<double> arr(n);	//创建数组对象
     cout << "Please input " << n << " real numbers:" << endl;
     for (unsigned i = 0; i < n; i++)

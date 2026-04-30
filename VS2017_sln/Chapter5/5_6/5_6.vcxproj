@@ -155,6 +155,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="5_6.cpp" />
+    <ClCompile Include="fun.cpp" />
+    <ClCompile Include="Point.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fun.h" />
+    <ClInclude Include="Point.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

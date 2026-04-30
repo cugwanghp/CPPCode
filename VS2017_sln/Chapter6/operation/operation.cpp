@@ -56,19 +56,20 @@ PTRF getOperatorFun(char oper)	//PTRF --> auto
 		return pf;
 }
 
+
 int main()
 {
 		//1+1,1-2,1*2
 		int	a, b;
 		char		oper;		//operation
+		int	res;
 		do {
 				std::cout << "请输入运算表达式：";
-				std::cin >> a >> oper >> b;
 				auto pf = getOperatorFun(oper);
 				if (pf == nullptr)
 						std::cerr << "unsupported operator.\n";
 				else
-						std::cout << a << oper << b << " = " << compute(a, b, pf) << std::endl;
+						std::cout << a << oper << b << " = " << pf(a,b) << std::endl;
 		} while (a!=0);
 		
 		return 0;

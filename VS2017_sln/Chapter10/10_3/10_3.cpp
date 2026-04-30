@@ -9,9 +9,7 @@ using namespace std;
 template <class T, class InputIterator, class OutputIterator>
 void mySort(InputIterator first, InputIterator last, OutputIterator result) {
 	//通过输入迭代器p将输入数据存入向量容器s中
-	vector<T> s;
-	for (;first != last; ++first)
-		s.push_back(*first);
+	vector<T> s(first, last);
 	//对s进行排序，sort函数的参数必须是随机访问迭代器
 	sort(s.begin(), s.end());
 	//将s序列通过输出迭代器输出
