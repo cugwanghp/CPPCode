@@ -1,108 +1,36 @@
 #include "ShapeSet.h"
-#include <fstream>
-#include <string>
-#include <sstream>
-#include "Triangle.h"
-#include "Rectangle.h"
-#include "Circle.h"
 
-ShapeSet::ShapeSet(const ShapeSet& other){
-    clone(other);
-}
-
-void ShapeSet::clone(const ShapeSet& other){
-    for (int i=0; i<other.shapeVector.size(); i++){
-        if (dynamic_cast<Triangle*>(other.shapeVector[i])){
-            shapeVector.push_back(new Triangle(*dynamic_cast<Triangle*>(other.shapeVector[i])));
-        }
-        else if (dynamic_cast<Rectangle*>(other.shapeVector[i])){
-            shapeVector.push_back(new Rectangle(*dynamic_cast<Rectangle*>(other.shapeVector[i])));
-        }
-        else if (dynamic_cast<Circle*>(other.shapeVector[i])){
-            shapeVector.push_back(new Circle(*dynamic_cast<Circle*>(other.shapeVector[i])));
-        }
+// 析构函数：逐一 delete 指针
+// 注意：
+//   - delete nullptr 是安全操作（什么都不做），无需额外判断
+//   - 每个 Shape 子类都有虚析构函数，所以这里 delete
+//     会正确调用 Circle/Rectangle/Triangle 的析构
+ShapeSet::~ShapeSet() {
+    for (Shape* shape : shapes) {
+        delete shape;
     }
 }
 
-ShapeSet& ShapeSet::operator=(const ShapeSet& other){
-    if (this != &other){
-        for (int i = 0; i < shapeVector.size(); i++){
-            delete shapeVector[i];
-        }
-        shapeVector.clear();
-
-        clone(other);
-    }
-    return *this;
-}   
-
-ShapeSet::ShapeSet(ShapeSet&& other) noexcept{
-    shapeVector = other.shapeVector;
-    other.shapeVector.clear();
+void ShapeSet::addShape(Shape* shape) {
+    shapes.push_back(shape);  // vector 自动扩容
 }
 
-ShapeSet::~ShapeSet(){
-    for (int i = 0; i < shapeVector.size(); i++){
-        delete shapeVector[i];
-    }   
-} 
-    
-bool ShapeSet::read(const char* filename){
-    // open file -> ifstream
-    // 
-    std::ifstream file(filename);
-    if (!file.is_open()) {
-        return false;
+void ShapeSet::printAll() const {
+    // const 成员函数：承诺不修改任何成员变量
+    // const Shape*：承诺不修改所指向的对象（但可以调用其 const 成员函数）
+    for (const Shape* shape : shapes) {
+        shape->print();
     }
-    // read shapes from file
-    std::string line;
-    double a, b, c, w, h, r;
-    int type;
-    ShapeType shapeType;
-
-    while (file.good()) {
-        std::getline(file, line);
-        std::istringstream iss(line);
-        iss >> type;
-        shapeType = static_cast<ShapeType>(type);
-        switch(shapeType){
-            case ShapeType::TRIANGLE:
-                iss >> a >> b >> c;
-                shapeVector.push_back(new Triangle(a, b, c));
-                break;
-            case ShapeType::RECTANGLE:
-                iss >> w >> h;
-                shapeVector.push_back(new Rectangle(w, h));
-                break;
-            case ShapeType::CIRCLE:
-                iss >> r;
-                shapeVector.push_back(new Circle(r));
-                break;
-            default:
-                break;
-        }
-    }
-
-    file.close();
-    return true;
 }
 
-int ShapeSet::getSize() const{
-    return shapeVector.size();
+double ShapeSet::totalArea() const {
+    double total = 0.0;
+    for (const Shape* shape : shapes) {
+        total += shape->area();  // 运行时多态：通过基类指针调用子类实现
+    }
+    return total;
 }
 
-double ShapeSet::getPerimeter() const{
-    double perimeter = 0.0;
-    for (int i = 0; i < shapeVector.size(); i++){
-        perimeter += shapeVector[i]->getPerimeter();
-    }
-    return perimeter;
-}
-
-double ShapeSet::getArea() const{
-    double area = 0.0;
-    for (int i = 0; i < shapeVector.size(); i++){
-        area += shapeVector[i]->getArea();
-    }
-    return area;
+int ShapeSet::count() const {
+    return shapes.size();  // size_t -> int 隐式转换，安全（数量不会为负）
 }

@@ -1,0 +1,7 @@
+# Shape_Type Shape_Parameter
+# 0-Circle center.x center.y radius
+# 1-Rect x1 y1 x2 y2
+# 2-Triangle x1 y1 x2 y2 x3 y3
+0 10.0 20.0 5.0
+1 20.0 30.0 40.0 50.0
+2 5.0 10.0 20.0 15.0 30.0 40.0
